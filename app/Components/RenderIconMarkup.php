@@ -6,7 +6,7 @@ namespace DsvgIcons\Components;
 
 use DsvgIcons\Framework\Contracts\Initable;
 use DsvgIcons\Framework\Utils\MinifiedMarkup;
-use DsvgIcons\Framework\View;
+use DsvgIcons\View\View;
 
 
 class RenderIconMarkup implements Initable {
@@ -20,22 +20,25 @@ class RenderIconMarkup implements Initable {
 	public function _render_markup() {
 		$content = '';
 
-		$content .= View::prepare( 'icon-wrapper', [
-			'id'   => 'dsvgicon--facebook',
-			'icon' => View::prepare( 'icons/facebook' )
-		] );
+		// todo - this should really just feed from a config array instead of rendering all files in directory the
+		//   opendir isn't taking theme dirs into account and that means it won't be loading any custom icons added
+		//   by a dev.
+		if ( $handle = opendir( DSVGI_PLUGIN_DIR . 'templates/icons' ) ) {
+			while ( false !== ( $file = readdir( $handle ) ) ) {
+				if ( $file != "." && $file != ".." ) {
 
-		$content .= View::prepare( 'icon-wrapper', [
-			'id'   => 'dsvgicon--twitter',
-			'icon' => View::prepare( 'icons/twitter' )
-		] );
+					$filename = pathinfo( $file, PATHINFO_FILENAME );
+					$content  .= View::get( 'icon-wrapper', [
+						'id'   => "dsvgicon--{$filename}",
+						'icon' => View::get( "icons/{$filename}" )
+					] );
 
-		$content .= View::prepare( 'icon-wrapper', [
-			'id'   => 'dsvgicon--umbrella',
-			'icon' => View::prepare( 'icons/umbrella' )
-		] );
+				}
+			}
+			closedir( $handle );
+		}
 
-		View::render( 'template-script', [
+		View::echo( 'template-script', [
 			'content' => MinifiedMarkup::make( $content )
 		] );
 	}

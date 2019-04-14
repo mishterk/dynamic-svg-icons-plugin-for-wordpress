@@ -6,7 +6,7 @@ namespace DynamicSvgIcons;
 
 use DsvgIcons\Framework\AutoLoader;
 use DsvgIcons\Framework\Contracts\Initable;
-use DsvgIcons\Framework\View;
+use DsvgIcons\View\View;
 
 
 class DynamicSvgIconsPlugin {
@@ -39,8 +39,7 @@ class DynamicSvgIconsPlugin {
 
 
 	private function init_view_system() {
-		include DSVGI_PLUGIN_DIR . 'framework/View.php';
-		View::$view_dir = DSVGI_PLUGIN_DIR . 'templates';
+		View::init();
 	}
 
 
