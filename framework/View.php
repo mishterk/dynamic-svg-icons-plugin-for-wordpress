@@ -27,6 +27,13 @@ class View {
 
 
 	/**
+	 * @var array An array of template directory names that are checked for override in the theme. These must include
+	 * the path relative to the view directory.
+	 */
+	public static $overridable_template_dirs = [];
+
+
+	/**
 	 * Render View Template With Data
 	 *
 	 * Locates a view template and includes it within the same scope as a data object/array. This makes it possible to
@@ -126,7 +133,7 @@ class View {
 	private static function get_full_path( $name ) {
 
 		// attempt to resolve template in override directory (wp theme)
-		if ( in_array( $name, self::$overridable_templates ) ) {
+		if ( self::template_is_overridable( $name ) ) {
 			$override_path = trailingslashit( self::$theme_view_dir ) . ltrim( $name, '/' );
 
 			if ( self::view_template_exists( $override_path ) ) {
@@ -135,6 +142,28 @@ class View {
 		}
 
 		return trailingslashit( self::$view_dir ) . ltrim( $name, '/' );
+	}
+
+
+	/**
+	 * @param $name
+	 *
+	 * @return bool
+	 */
+	private static function template_is_overridable( $name ) {
+		// check explicitly declared templates
+		if ( in_array( $name, self::$overridable_templates ) ) {
+			return true;
+		}
+
+		// check if name starts with a declared directory
+		foreach ( self::$overridable_template_dirs as $dir ) {
+			if ( strpos( $name, $dir ) === 0 ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 
