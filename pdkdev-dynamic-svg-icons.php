@@ -23,3 +23,20 @@ define( 'DSVGI_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 require_once DSVGI_PLUGIN_DIR . 'app/DynamicSvgIconsPlugin.php';
 $plugin = new \DynamicSvgIcons\DynamicSvgIconsPlugin();
 $plugin->init();
+
+
+// NOTE: this resolves ALL icons in a given directory. We won't use this to load up icons on the front end but it will be useful when presenting icons in the admin.
+//if ( $handle = opendir( DSVGI_PLUGIN_DIR . 'templates/icons' ) ) {
+//	while ( false !== ( $file = readdir( $handle ) ) ) {
+//		if ( $file != "." && $file != ".." ) {
+//
+//			$filename = pathinfo( $file, PATHINFO_FILENAME );
+//			$content  .= View::get( 'icon-wrapper', [
+//				'id'   => "dsvgicon--{$filename}",
+//				'icon' => View::get( "icons/{$filename}" )
+//			] );
+//
+//		}
+//	}
+//	closedir( $handle );
+//}
