@@ -51,14 +51,6 @@ class ViewRenderer {
 	private $overridable_template_dirs = [];
 
 
-	/**
-	 * @param string $view_base_dir
-	 */
-	public function __construct( $view_base_dir = '' ) {
-		$this->set_view_base_dir( $view_base_dir );
-	}
-
-
 	public function set_view_base_dir( $dir ) {
 		$this->view_base_dir = $dir;
 	}
