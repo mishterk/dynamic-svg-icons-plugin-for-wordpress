@@ -37,9 +37,9 @@ class View extends \DsvgIcons\Framework\View\ViewBase {
 }
 
 // print the markup
-View::echo('some/template', [...]);
+View::echo('some/template', ['var' => 'data']);
 
 // get the markup
-$markup = View::get('some/template', [...]);
+$markup = View::get('some/template', ['var' => 'data']);
 
 ```
