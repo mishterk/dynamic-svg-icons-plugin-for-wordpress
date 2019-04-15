@@ -18,29 +18,34 @@ class RenderIconMarkup implements Initable {
 
 
 	public function _render_markup() {
+		View::echo( 'template-script', [
+			'content' => MinifiedMarkup::make( $this->get_active_icon_markup() )
+		] );
+	}
+
+
+	private function get_active_icon_markup() {
 		$content = '';
 
-		// todo - this should really just feed from a config array instead of rendering all files in directory the
-		//   opendir isn't taking theme dirs into account and that means it won't be loading any custom icons added
-		//   by a dev.
-		if ( $handle = opendir( DSVGI_PLUGIN_DIR . 'templates/icons' ) ) {
-			while ( false !== ( $file = readdir( $handle ) ) ) {
-				if ( $file != "." && $file != ".." ) {
+		foreach ( $this->get_active_icons() as $icon ) {
 
-					$filename = pathinfo( $file, PATHINFO_FILENAME );
-					$content  .= View::get( 'icon-wrapper', [
-						'id'   => "dsvgicon--{$filename}",
-						'icon' => View::get( "icons/{$filename}" )
-					] );
+			$filename = pathinfo( $icon, PATHINFO_FILENAME );
 
-				}
-			}
-			closedir( $handle );
+			$content .= View::get( 'icon-wrapper', [
+				'id'   => "dsvgicon--{$filename}",
+				'icon' => View::get( "icons/{$filename}" )
+			] );
 		}
 
-		View::echo( 'template-script', [
-			'content' => MinifiedMarkup::make( $content )
-		] );
+		return $content;
+	}
+
+
+	private function get_active_icons() {
+		// todo - get using config object
+		$icons = include DSVGI_PLUGIN_DIR . 'config/active-icons.php';
+
+		return apply_filters( 'dsvgicons/active_icons', $icons );
 	}
 
 
