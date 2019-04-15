@@ -3,6 +3,7 @@
 The ViewRenderer can be used on its own:
 
 ```php
+<?php 
 $view = new \DsvgIcons\Framework\View\ViewRenderer();
 $view->set_view_base_dir('/some/dir');
 
@@ -12,6 +13,7 @@ $view->render('some/template', ['var' => 'data']);
 For static access, define one or more custom view objects at the app level and extend the View class as follows:
 
 ```php
+<?php 
 class View extends \DsvgIcons\Framework\View\ViewBase {
 
 	protected function setup() {
