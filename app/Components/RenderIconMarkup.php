@@ -43,7 +43,11 @@ class RenderIconMarkup implements Initable {
 
 	private function get_active_icons() {
 		// todo - get using config object
-		$icons = include DSVGI_PLUGIN_DIR . 'config/active-icons.php';
+		//$icons = include DSVGI_PLUGIN_DIR . 'config/active-icons.php';
+		$config_path = get_stylesheet_directory() . '/dsvgicons/active-icons.php';
+		$icons       = file_exists( $config_path )
+			? include $config_path
+			: [];
 
 		return apply_filters( 'dsvgicons/active_icons', $icons );
 	}
