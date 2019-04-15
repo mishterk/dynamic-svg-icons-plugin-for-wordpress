@@ -22,28 +22,33 @@ class ViewRenderer {
 	/**
 	 * @var string The view directory inside the plugin
 	 */
-	protected $view_base_dir = '';
+	private $view_base_dir = '';
 
 
 	/**
 	 * @var string The alternate view directory we check for overridable template resolution.
 	 */
-	protected $view_override_base_dir = '';
+	private $view_override_base_dir = '';
+
+
+	/**
+	 * @var bool If true, all templates relative to self::$view_base_dir will be overridable.
+	 */
+	private $all_templates_overridable = false;
 
 
 	/**
 	 * @var array An array of template names that are checked for override in the theme. These must include the template
 	 * paths relative to the view directory. File extensions are also required here.
-	 * TODO: remove the need to specify file extensions
 	 */
-	protected $overridable_templates = [];
+	private $overridable_templates = [];
 
 
 	/**
 	 * @var array An array of template directory names that are checked for override in the theme. These must include
 	 * the path relative to the view directory.
 	 */
-	protected $overridable_template_dirs = [];
+	private $overridable_template_dirs = [];
 
 
 	/**
@@ -59,6 +64,11 @@ class ViewRenderer {
 	}
 
 
+	public function make_all_templates_overridable() {
+		$this->all_templates_overridable = true;
+	}
+
+
 	/**
 	 * @param $dir
 	 */
@@ -68,18 +78,22 @@ class ViewRenderer {
 
 
 	/**
-	 * @param array $templates An array of template paths that are overridable
+	 * @param array $templates An array of template paths that are overridable.
+	 * @param string $extension
 	 */
-	public function set_overridable_templates( array $templates ) {
-		$this->overridable_templates = $templates;
+	public function set_overridable_templates( array $templates, $extension = '.php' ) {
+		$this->overridable_templates = array_map( function ( $template ) use ( $extension ) {
+			return $template . $extension;
+		}, $templates );
 	}
 
 
 	/**
-	 * @param $template
+	 * @param string $template
+	 * @param string $extension
 	 */
-	public function add_overridable_template( $template ) {
-		$this->overridable_templates[] = $template;
+	public function add_overridable_template( $template, $extension = '.php' ) {
+		$this->overridable_templates[] = $template . $extension;
 	}
 
 
@@ -104,10 +118,10 @@ class ViewRenderer {
 	 *
 	 * @param $name
 	 * @param array $data
-	 * @param string $suffix
+	 * @param string $extension
 	 */
-	public function render( $name, $data = [], $suffix = '.php' ) {
-		echo $this->prepare( $name, $data, $suffix );
+	public function render( $name, $data = [], $extension = '.php' ) {
+		echo $this->prepare( $name, $data, $extension );
 	}
 
 
@@ -131,13 +145,13 @@ class ViewRenderer {
 	 *
 	 * @param   string|null $name A named variation for the template. This is in the form {$name}.php. Can include directories, where necessary.
 	 * @param   object|array $data An associative array or object to use inside the template.
-	 * @param   string $suffix The file suffix.
+	 * @param   string $extension The file suffix.
 	 *
 	 * @return  string
 	 */
-	public function prepare( $name, $data = [], $suffix = '.php' ) {
+	public function prepare( $name, $data = [], $extension = '.php' ) {
 		$markup = '';
-		$path   = $this->get_full_path( $name . $suffix );
+		$path   = $this->get_full_path( $name . $extension );
 
 		if ( $t = $this->view_template_exists( $path ) ) {
 			$data   = $this->prepare_data( $data );
@@ -222,6 +236,10 @@ class ViewRenderer {
 	 * @return bool
 	 */
 	private function template_is_overridable( $name ) {
+		if ( $this->all_templates_overridable ) {
+			return true;
+		}
+
 		// check explicitly declared templates
 		if ( in_array( $name, $this->overridable_templates ) ) {
 			return true;
