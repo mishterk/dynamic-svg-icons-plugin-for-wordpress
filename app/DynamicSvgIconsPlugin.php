@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DynamicSvgIcons;
+namespace DsvgIcons;
 
 
 use DsvgIcons\Framework\AutoLoader;

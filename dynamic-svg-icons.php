@@ -24,7 +24,7 @@ define( 'DSVGI_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 if ( version_compare( PHP_VERSION, DSVGI_MIN_PHP_VERSION, '>=' ) ) {
 	require_once DSVGI_PLUGIN_DIR . 'app/DynamicSvgIconsPlugin.php';
-	$plugin = new \DynamicSvgIcons\DynamicSvgIconsPlugin();
+	$plugin = new \DsvgIcons\DynamicSvgIconsPlugin();
 	$plugin->init();
 
 } else {
