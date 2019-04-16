@@ -53,4 +53,30 @@ class RenderIconMarkup implements Initable {
 	}
 
 
+	/**
+	 * NOTE: this resolves ALL icons in a given directory. We won't use this to load up icons on the front end but it
+	 *   will be of use to us when we list out all available icons in the admin.
+	 */
+	private function get_all_icons() {
+		$content = '';
+
+		if ( $handle = opendir( DSVGI_PLUGIN_DIR . 'templates/icons' ) ) {
+			while ( false !== ( $file = readdir( $handle ) ) ) {
+				if ( $file != "." && $file != ".." ) {
+
+					$filename = pathinfo( $file, PATHINFO_FILENAME );
+					$content  .= View::get( 'icon-wrapper', [
+						'id'   => "dsvgicon--{$filename}",
+						'icon' => View::get( "icons/{$filename}" )
+					] );
+
+				}
+			}
+			closedir( $handle );
+		}
+
+		return $content;
+	}
+
+
 }
