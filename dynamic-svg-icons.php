@@ -3,7 +3,7 @@
  * Plugin Name: Dynamic SVG Icons
  * Plugin URI:  TODO
  * Description: Dynamically place SVG icons and images on your site using placeholder markup.
- * Version:     1.0
+ * Version:     0.1
  * Author:      Phil Kurth
  * Author URI:  http://philkurth.com.au
  * License:     GPL2
@@ -18,7 +18,7 @@ defined( 'WPINC' ) or die();
 
 define( 'DSVGI_MIN_PHP_VERSION', '7.0' );
 define( 'DSVGI_PLUGIN_NAME', 'Dynamic SVG Icons' );
-define( 'DSVGI_PLUGIN_VERSION', 1.0 );
+define( 'DSVGI_PLUGIN_VERSION', 0.1 );
 define( 'DSVGI_PLUGIN_TEXT_DOMAIN', 'dynamic-svg-icons' );
 define( 'DSVGI_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DSVGI_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
