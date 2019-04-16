@@ -29,7 +29,7 @@ if ( version_compare( PHP_VERSION, DSVGI_MIN_PHP_VERSION, '>=' ) ) {
 	$plugin->init();
 
 } else {
-	require_once DSVGI_PLUGIN_DIR . 'app/AdminNotices/FailedPhpVersionNotification.php';
-	$notice = new \DsvgIcons\AdminNotices\FailedPhpVersionNotification();
+	require_once DSVGI_PLUGIN_DIR . 'app/AdminNotices/FailedPhpVersionNotice.php';
+	$notice = new \DsvgIcons\AdminNotices\FailedPhpVersionNotice( DSVGI_PLUGIN_NAME, DSVGI_MIN_PHP_VERSION );
 	$notice->init();
 }
