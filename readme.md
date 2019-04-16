@@ -1,3 +1,12 @@
+## What does this plugin do?
+
+This plugin provides a mechanism for you to dynamically place SVG code into your theme's template files using HTML 
+placeholders. The HTML placeholders are dynamically replaced by the SVG markup on page load. The benefit of doing it 
+this way is that you only need to load the SVG code (which can get kinda large) once on the page.
+
+The plugin contains many useful icons by default and each icon can be overridden by declaring custom template files in 
+your theme. It is also possible to add your own SVGs and have them load dynamically on page load.  
+
 ## Basic Usage
 
 To use this plugin you need to:
