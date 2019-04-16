@@ -16,7 +16,8 @@
 // If this file is called directly, abort.
 defined( 'WPINC' ) or die();
 
-define( 'DSVGI_MIN_PHP_VERSION', '7' );
+define( 'DSVGI_MIN_PHP_VERSION', '7.0' );
+define( 'DSVGI_PLUGIN_NAME', 'Dynamic SVG Icons' );
 define( 'DSVGI_PLUGIN_VERSION', 1.0 );
 define( 'DSVGI_PLUGIN_TEXT_DOMAIN', 'dynamic-svg-icons' );
 define( 'DSVGI_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -28,5 +29,7 @@ if ( version_compare( PHP_VERSION, DSVGI_MIN_PHP_VERSION, '>=' ) ) {
 	$plugin->init();
 
 } else {
-	add_action( 'admin_notices', 'envato_partner_plugin_php_version_fail_notice' );
+	require_once DSVGI_PLUGIN_DIR . 'app/AdminNotices/FailedPhpVersionNotification.php';
+	$notice = new \DsvgIcons\AdminNotices\FailedPhpVersionNotification();
+	$notice->init();
 }
