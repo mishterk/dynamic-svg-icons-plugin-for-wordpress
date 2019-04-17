@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Dynamic SVG Icons
- * Plugin URI:  TODO
+ * Plugin URI:  https://wordpress.org/plugins/dynamic-svg-icons/
  * Description: Dynamically place SVG icons and images on your site using placeholder markup.
  * Version:     0.1
  * Author:      Phil Kurth
