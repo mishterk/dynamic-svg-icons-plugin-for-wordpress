@@ -22,7 +22,7 @@ This plugin provides a number of icons out-of-the-box that can be enabled and in
 
 You can find full details of installing a plugin on the [plugin installation page](https://redirection.me/support/installation/).
 
-Full documentation can be found on the [GitHub Repository](https://github.com/mishterk/dynamic-svg-icons-plugin-for-wordpress).
+Full documentation can be found on the [GitHub repository docs](https://mishterk.github.io/dynamic-svg-icons-plugin-for-wordpress/).
 
 == Frequently Asked Questions ==
 
