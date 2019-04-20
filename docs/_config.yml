@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
 title: Dynamic SVG Icons plugin for WordPress
-description: A simple plugin for xxx
+description: A simple plugin for dynamic replacement of HTML placeholders with SVG code.
 show_downloads: true
 google_analytics: UA-50514642-4
