@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Documentation | Dynamic SVG Icons plugin for WordPress
+title: Dynamic SVG Icons plugin for WordPress Documentation
 ---
 
 ## What does this plugin do?
