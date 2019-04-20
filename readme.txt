@@ -37,3 +37,7 @@ This approach cuts out the additional requests to load an icon font. It is also 
 = Can I use my own SVG images? =
 
 Yes. See the [_using custom SVGs section_](https://mishterk.github.io/dynamic-svg-icons-plugin-for-wordpress#using-custom-svgs) of the documentation to learn how.
+
+= Can I override the default icon SVG markup? =
+
+Yes. See the [_overriding built-in SVGs section_](https://mishterk.github.io/dynamic-svg-icons-plugin-for-wordpress#overriding-built-in-svgs) of the documentation to learn how.
