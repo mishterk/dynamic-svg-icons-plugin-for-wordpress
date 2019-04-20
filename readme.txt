@@ -4,14 +4,16 @@ Tags: SVG, Icons
 Requires at least: 5.0
 Tested up to: 5.1.1
 Requires PHP: 7.0
-Stable tag: trunk
+Stable tag: 1.0
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Dynamically place SVG icons and images on your site via JavaScript-based replacement of HTML placeholders. Similar to how some icon fonts work.
 
 == Description ==
-This plugin provides a number of icons out-of-the-box that can be enabled and included in a site as SVG markup. The icons are placed on a page as HTML elements with specific class names which the plugin then replaces with SVG code via JavaScript.
+This plugin provides a number of icons out-of-the-box that can be enabled and included in a site as SVG markup. Custom SVG icons/images are also supported.
+
+The icons are placed on a page as HTML elements with specific class names which the plugin then replaces with SVG code via JavaScript.
 
 == Installation ==
 
@@ -27,21 +29,9 @@ Full documentation can be found on the [GitHub repository docs](https://mishterk
 == Frequently Asked Questions ==
 
 = Why would I use this over an icon font? =
-= Why would I use this instead of just dropping the SVG code directly into my templates? =
+
+This approach cuts out the additional requests to load an icon font. It is also easier to register your custom SVG images with this plugin than to load them into an icon font.
+
 = Can I use my own SVG images? =
 
-Yes. TODO - elaborate
-
-== Screenshots ==
-1. Screenshot 1 description TODO
-2. Screenshot 2 description TODO
-3. Screenshot 3 description TODO
-
-== Changelog ==
-### Version 1.0
-
-- Did xxxx
-- Did yyy
-
-== Upgrade Notice ==
-Upgrade this plugin because xxx
+Yes. See the [_using custom SVGs section_](https://mishterk.github.io/dynamic-svg-icons-plugin-for-wordpress#using-custom-svgs) of the documentation to learn how.
