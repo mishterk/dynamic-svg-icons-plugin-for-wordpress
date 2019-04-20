@@ -85,3 +85,14 @@ look something like `<?xml version="1.0" encoding="iso-8859-1"?>`. This needs to
 ### What if the custom SVG doesn't resize to fill its containing element? 
 
 The SVG likely has `height` and `width` attributes. Remove these but leave the `viewbox` attribute intact. 
+
+## Overriding built-in SVGs
+
+If you need to modify or replace the SVG code in a default icon:
+
+1. Locate the PHP file containing the SVG markup in `/wp-contents/plugins/dynamic-svg-icons/templates/icons`
+1. Copy the file to the `dsvgicons/icons` directory within your theme
+1. Modify/replace the SVG code accordingly
+
+The plugin automatically checks the theme directory for an override file before falling back to the plugin's template 
+directory so your custom SVG will now load in place of the default. 

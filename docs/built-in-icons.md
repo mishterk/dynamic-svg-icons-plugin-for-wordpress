@@ -1,8 +1,8 @@
 ---
 layout: default
-title: ''
-description: 'asdfasdfasdfasdf'
 ---
+
+# Built-in Icons
 
 The below icons are built in and can be registered for immediate use. These icons are sourced from the [Font Awesome SVG PNG repository](https://github.com/encharm/Font-Awesome-SVG-PNG).
 
