@@ -3,6 +3,8 @@ layout: default
 title: Dynamic SVG Icons plugin for WordPress Documentation
 ---
 
+# Plugin documentation
+
 ## What does this plugin do?
 
 This plugin provides a mechanism for you to dynamically place SVG code into your theme's template files using HTML 
