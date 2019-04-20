@@ -14,6 +14,8 @@ this way is that you only need to load the SVG code (which can get kinda large) 
 The plugin contains many useful icons by default and each icon can be overridden by declaring custom template files in 
 your theme. It is also possible to add your own SVGs and have them load dynamically on page load.  
 
+For a full list of built-in SVG icons, see [built-in icons](https://mishterk.github.io/dynamic-svg-icons-plugin-for-wordpress/built-in-icons).
+
 ## Basic Usage
 
 To use this plugin you need to:
