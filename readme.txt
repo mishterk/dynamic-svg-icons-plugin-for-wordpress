@@ -11,6 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Dynamically place SVG icons and images on your site via JavaScript-based replacement of HTML placeholders. Similar to how some icon fonts work but without the extra HTTP requests.
 
 == Description ==
+
 This plugin provides a number of icons out-of-the-box that can be enabled and included in a site as SVG markup. Custom SVG icons/images are also supported.
 
 The icons are placed on a page as HTML elements with specific class names which the plugin then replaces with SVG code via JavaScript.
@@ -41,3 +42,9 @@ Yes. See the [_using custom SVGs section_](https://mishterk.github.io/dynamic-sv
 = Can I override the default icon SVG markup? =
 
 Yes. See the [_overriding built-in SVGs section_](https://mishterk.github.io/dynamic-svg-icons-plugin-for-wordpress#overriding-built-in-svgs) of the documentation to learn how.
+
+== Support ==
+
+Please submit bugs, patches, and feature requests to:
+
+[https://github.com/mishterk/dynamic-svg-icons-plugin-for-wordpress](https://github.com/mishterk/dynamic-svg-icons-plugin-for-wordpress)
