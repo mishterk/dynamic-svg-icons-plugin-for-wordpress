@@ -70,9 +70,10 @@ Again, the element does not matter, only the class name.
 
 It is possible to use custom SVGs. To do so:
 
-1. Copy the SVG file to the `dsvgicons/icons` directory and rename it as a `.php` file. e.g; `my-svg.svg` will become 
+1. Copy the SVG file to the `dsvgicons/icons` directory and rename it as a `.php` file. 
+  - e.g; `my-svg.svg` will become 
 `my-svg.php`
-1. Add the file name to the icons-to-load array. See _Specifying which icons to load_
+1. Add the file name to the icons-to-load array. See [_Specifying which icons to load_](#specifying-which-icons-to-load)
 1. Place an icon placeholder anywhere in your HTML using the same prefixed markup but using the custom file name in the 
 class name.
   - e.g; `<i class="dsvgicon--my-svg"></i>`
